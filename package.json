@@ -7,6 +7,7 @@
     "contributors": [
         "Alexis Coudeyras"
     ],
+    "externalWidgets" : ["https://github.com/acoudeyras/WakendoCore.git"],
     "version": "1.0.0",
     "copyright": "(c) 2014 Widget Developer",
     "repository": {
