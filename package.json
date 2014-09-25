@@ -7,7 +7,6 @@
     "contributors": [
         "Alexis Coudeyras"
     ],
-    "externalWidgets" : ["WakendoCore],
     "version": "1.0.0",
     "copyright": "(c) 2014 Widget Developer",
     "repository": {
