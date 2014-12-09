@@ -1,52 +1,52 @@
 WAF.define('WakendoDatePicker', ['waf-core/widget', 'wakendoCore', 'kendoHelpers'], function(widget, $, helpers) {
-	'use strict';
-	
+    'use strict';
+    
     var KendoDatePicker = widget.create('WakendoDatePicker', {
-    	
-    	value: widget.property({
-    		type: 'string'
-    	}),
-    	
+        
+        value: widget.property({
+            type: 'date'
+        }),
+        
         init: function() {
-        	var self = this;
+            var self = this;
 
-        	self.valueChangeSubscriber = self.value.onChange(function(newValue) {
-        		newValue = helpers.toDate(newValue);
-        		self.kendoWidget.value(newValue);
-        	});
-        	self.render();
+            self.valueChangeSubscriber = self.value.onChange(function(newValue) {
+                //newValue = helpers.toDate(newValue);
+                self.kendoWidget.value(newValue);
+            });
+            self.render();
         },
         
         render: function() {
-        	var self = this;	
-        	$(self.node).empty();
-			var $el = $('<input />').appendTo(self.node);
-			
-        	$el.kendoDatePicker({
-        		change: function(event) {
-        			self.valueChangeSubscriber.pause();
-        			self.value(self.kendoWidget.value().toString());
-        			self.valueChangeSubscriber.resume();
-        		}
-        	});
-        	
-        	self.kendoWidget = $el.data("kendoDatePicker");			        	
+            var self = this;    
+            $(self.node).empty();
+            var $el = $('<input />').appendTo(self.node);
+            
+            $el.kendoDatePicker({
+                change: function(event) {
+                    self.valueChangeSubscriber.pause();
+                    self.value(self.kendoWidget.value() || null);
+                    self.valueChangeSubscriber.resume();
+                }
+            });
+            
+            self.kendoWidget = $el.data("kendoDatePicker");                     
         },
 
         open: function() {
-        	this.kendoWidget.open();
+            this.kendoWidget.open();
         },
 
         close: function() {
-        	this.kendoWidget.close();
+            this.kendoWidget.close();
         },
 
         enable: function() {
-        	this.kendoWidget.enable();
+            this.kendoWidget.enable();
         },
 
         disable: function() {
-        	this.kendoWidget.enable(false);
+            this.kendoWidget.enable(false);
         }
 
     });
