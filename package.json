@@ -14,7 +14,8 @@
         "url": "https://github.com/acoudeyras/WakendoDatePicker.git"
     },
     "keywords": ["wakanda", "widget", "kendo", "date"],
-    "engines": {"wakanda": ">= 8"},
+    "engines": {"wakanda": ">= 9"},
+    "externalWidgets" : ["WakendoCore"],
     "license": "MIT",
     "loadDependencies": [
         {"id": "Widget_V2"},
