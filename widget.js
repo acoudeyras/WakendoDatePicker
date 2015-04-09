@@ -4,8 +4,7 @@ WAF.define('WakendoDatePicker', ['waf-core/widget', 'wakendoCore', 'kendoHelpers
     var KendoDatePicker = widget.create('WakendoDatePicker', {
         
         value: widget.property({
-            type: 'date', 
-	    defaultValue: new Date()
+            type: 'date'
         }),
         
         init: function() {
